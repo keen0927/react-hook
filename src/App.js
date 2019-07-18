@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 
+const useInput = initialState => {
+  const [ value, setValue ] = useState(initialState);
+  const onChange = event => {
+    console.log(event.target);
+  }
+  return { value, onChange }
+}
+
 const App = () => {
 
-  const [ toggleValue, setToggleValue ] = useState(false);
-  const onToggle = () => setToggleValue(!toggleValue);
-
-  const toggleExecute = () => {
-    setToggleValue(!toggleValue);
-    return toggleValue ? "참": "거짓" ;
-  }
-
+  const testCustomHook = useInput('Keen');
   return (
+
     <div>
-      <div>{ toggleValue ? 'on' : 'off'}</div>
-      <button onClick={toggleExecute}>버튼</button>
+      <input type="text" placeholder={testCustomHook.value} onChange={testCustomHook.onChange} />
     </div>
+    
   )
 }
 
