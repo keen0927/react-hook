@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 
 const App = () => {
-  const [count, setCount] = useState(0);
+
+  const [ toggleValue, setToggleValue ] = useState(false);
+  const onToggle = () => setToggleValue(!toggleValue);
+
+  const toggleExecute = () => {
+    setToggleValue(!toggleValue);
+    return toggleValue ? "참": "거짓" ;
+  }
+
   return (
     <div>
-      {count}
-      <button onClick={() => {
-        setCount(count + 1);
-      }}>+ 1</button>
+      <div>{ toggleValue ? 'on' : 'off'}</div>
+      <button onClick={toggleExecute}>버튼</button>
     </div>
   )
 }
