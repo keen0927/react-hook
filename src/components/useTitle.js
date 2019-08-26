@@ -1,32 +1,50 @@
 import React, { useState, useEffect } from 'react'
 
-const useTitle = (initialTitle) => {
+const useTitleUpdater = (initialTitle) => {
 	const [title, setTitle] = useState(initialTitle);
 
 	const updateTitle = () => {
 		const htmlTitle = document.querySelector('title');
-		htmlTitle.innerText = title
+		htmlTitle.innerText = title;
 	}
 
-	useEffect(() => {
-		updateTitle();
-	},[title]);
+	const test = () => {
+		console.log('ttt');
+	}
+
+	useEffect(updateTitle,[]);
+	useEffect(test,[]);
 	return setTitle;
 }
 
-const useTitleCustom = () => {
+const useTitle = () => {
 
-	const titleUpdate = useTitle('Loading...');
+	const handleChange = () => {
+		console.log('11');
+	}
+	const ddd = useTitleUpdater('바뀜');
+
+	// setTimeout(function(){
+	// 	console.log('바뀜');
+		
+	// },3000);
+
+	// const updater = useTitleUpdater('..loading');
+
+	// const titleChange = useTitleUpdater('..loading');
 
 	// setTimeout(() => {
-	// 	titleUpdate("k")
-	// },2000);
+	// 	console.log('setTime');
+	// 	useTitleUpdater('11');
+	// },2000)
+
+	// const titleChange = useTitleUpdater('111');
 
 	return (
 		<div>
-			<button onClick={() => titleUpdate("k")}>클릭</button>
+			<button type="button">버튼</button>
 		</div>
 	)
 }
 
-export default useTitleCustom;
+export default useTitle
