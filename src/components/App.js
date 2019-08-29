@@ -1,8 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import useInputComponent from './useInputComponent';
-import useEffect from './useEffect';
-import useTitle from './useTitle';
+import useFadeIn from './useFadeIn';
 // import useConfirm from './useConfirm';
 
 const App = () => {
@@ -10,7 +8,8 @@ const App = () => {
   return (
     <div>
       
-      <Route path="/useInput" component={ useInputComponent } />
+      <Route path="/" component={ useFadeIn } />
+      {/*<Route path="/useInput" component={ useInputComponent } />*/}
       {/*<Route path="/useEffect" component={ useEffect } />*/}
       {/*<Route path="/useTitle" component={ useTitle } />*/}
     </div>
